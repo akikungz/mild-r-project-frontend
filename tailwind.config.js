@@ -10,6 +10,19 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const lineClampUtilities = {};
+      for (let i = 1; i <= 5; i++) {
+        lineClampUtilities[`.line-clamp-${i}`] = {
+          overflow: 'hidden',
+          display: '-webkit-box',
+          '-webkit-line-clamp': `${i}`,
+          '-webkit-box-orient': 'vertical',
+        };
+      }
+      addUtilities(lineClampUtilities, ['responsive', 'hover']);
+    },
+  ],
 }
 

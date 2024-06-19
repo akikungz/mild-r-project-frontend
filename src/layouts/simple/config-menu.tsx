@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+// import { useTranslation } from 'react-i18next'
 
 export interface MenuItem {
   title: string
@@ -6,20 +6,33 @@ export interface MenuItem {
 }
 
 const useMenuItems = (): MenuItem[] => {
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
 
   return [
     {
-      title: t('header.1'),
-      path: '/',
+      // title: t('header.1'),
+      title: 'หน้าหลัก',
+      path: '/home',
     },
     {
-      title: t('header.2'),
-      path: '/',
+      title: 'ตารางไลฟ์',
+      path: '/calendar',
     },
     {
-      title: t('header.3'),
-      path: '/',
+      title: 'FanArt Gallery',
+      path: '/gallery',
+    },
+    {
+      title: 'Mild-R Song',
+      path: '/song',
+    },
+    {
+      title: 'ข่าวสาร',
+      path: '/blog',
+    },
+    {
+      title: 'เกี่ยวกับมายด์',
+      path: '/about',
     },
   ]
 }
