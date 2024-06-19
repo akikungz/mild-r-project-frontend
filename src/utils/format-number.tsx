@@ -2,6 +2,12 @@ import numeral from 'numeral'
 
 // ----------------------------------------------------------------------
 
+export function pad(num: number, size: number) {
+  let formatNum = num.toString()
+  while (formatNum.length < size) formatNum = '0' + formatNum
+  return formatNum
+}
+
 export function fCustomNumber(number: number, key: string = '.00') {
   return numeral(number).format(key)
 }

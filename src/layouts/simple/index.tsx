@@ -1,6 +1,7 @@
 import { FaArrowUpLong } from 'react-icons/fa6'
 import ScrollToTop from 'react-scroll-to-top'
 
+import SocialButtons from './common/social-button'
 import Footer from './footer'
 import Header from './header'
 
@@ -27,6 +28,7 @@ export default function SimpleLayout({ children }: SimpleLayoutT) {
       <Header />
 
       <div className="mt-[66px] w-full">
+        <SocialButtons />
         {children}
         <Footer />
       </div>
@@ -39,7 +41,7 @@ export default function SimpleLayout({ children }: SimpleLayoutT) {
           right: '20px',
           bottom: '20px',
           borderRadius: '100%',
-          backgroundColor: '#28A745',
+          backgroundColor: '#e44b90',
         }}
       />
     </>

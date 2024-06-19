@@ -1,14 +1,14 @@
-import { useState } from 'react'
-// import { useTranslation } from 'react-i18next'
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import useMenuItems from './config-menu'
 
-// interface LangT {
-//   value: string
-//   label: string
-//   icon: string
-// }
+interface LangT {
+  value: string
+  label: string
+  icon: string
+}
 
 export interface ItemT {
   path: string
@@ -16,36 +16,36 @@ export interface ItemT {
 }
 
 export default function Header() {
-  // const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const menuItems = useMenuItems()
   const [openMenu, setOpenMenu] = useState(false)
-  // const [openLang, setOpenLang] = useState(false)
+  const [openLang, setOpenLang] = useState(false)
 
-  // const LANGS: LangT[] = useMemo(
-  //   () => [
-  //     {
-  //       value: 'th',
-  //       label: t('header.language.thai'),
-  //       icon: '/assets/images/th-flag.svg',
-  //     },
-  //     {
-  //       value: 'en',
-  //       label: t('header.language.english'),
-  //       icon: '/assets/images/en-flag.svg',
-  //     },
-  //   ],
-  //   [t],
-  // )
+  const LANGS: LangT[] = useMemo(
+    () => [
+      {
+        value: 'th',
+        label: t('header.language.thai'),
+        icon: '/assets/images/th-flag.svg',
+      },
+      {
+        value: 'en',
+        label: t('header.language.english'),
+        icon: '/assets/images/en-flag.svg',
+      },
+    ],
+    [t],
+  )
 
-  // const changeLang = (language: string) => {
-  //   i18n.changeLanguage(language)
-  //   setOpenLang(false)
-  // }
+  const changeLang = (language: string) => {
+    i18n.changeLanguage(language)
+    setOpenLang(false)
+  }
 
   const toggleOpenMenu = () => setOpenMenu(!openMenu)
-  // const toggleOpenLang = () => setOpenLang(!openLang)
+  const toggleOpenLang = () => setOpenLang(!openLang)
 
-  // const currentLang = LANGS.find((lang) => lang.value === i18n.language)
+  const currentLang = LANGS.find((lang) => lang.value === i18n.language)
 
   const handleClick = (path: string) => {
     setOpenMenu(false)
@@ -56,21 +56,17 @@ export default function Header() {
   }
 
   return (
-    <nav className="fixed start-0 top-0 z-20 h-[66px] w-full bg-gradient-to-b from-[#003F06] to-[#00781E] shadow-lg shadow-[#00000036] md:shadow-transparent">
+    <nav className="fixed start-0 top-0 z-20 h-[66px] w-full bg-gradient-to-b from-[#4fced2] to-[#9bebee] shadow-lg shadow-[#00000036] md:shadow-transparent">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Link
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          {/* <img
-            src="/assets/images/"
-            className="h-8"
-            alt="Logo"
-          /> */}
+          <img src="/assets/images/logo-main.svg" className="h-8" alt="Logo" />
         </Link>
 
         <div className="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-          {/* <button
+          <button
             type="button"
             data-dropdown-toggle="language-dropdown-menu"
             className="relative hidden cursor-pointer items-center justify-center rounded-lg px-4 py-2 text-sm font-bold text-white"
@@ -87,9 +83,9 @@ export default function Header() {
               src="/assets/images/angle-down.svg"
               alt="arrow-down-icon"
             />
-          </button> */}
+          </button>
 
-          {/* {openLang && (
+          {openLang && (
             <div
               className="z-50 my-4 list-none divide-y divide-gray-100 bg-white text-base shadow"
               style={{
@@ -118,9 +114,9 @@ export default function Header() {
                 ))}
               </ul>
             </div>
-          )} */}
+          )}
 
-          {/* <button
+          <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 transition-all duration-300 hover:bg-[#00781E] focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             onClick={toggleOpenMenu}
@@ -131,9 +127,9 @@ export default function Header() {
             <img
               src="/assets/images/hamburger.svg"
               className="h-5 w-5"
-              alt="Logo"
+              alt="Feels Logo"
             />
-          </button> */}
+          </button>
         </div>
 
         <div
@@ -146,7 +142,7 @@ export default function Header() {
                 <li key={item.title}>
                   <Link
                     to={item.path}
-                    className="block px-3 py-2 text-[16px] font-[700] text-white md:p-0 "
+                    className="block px-3 py-2 text-[16px] font-[700] text-white hover:!font-[900] hover:text-[#f7b4d0] hover:underline hover:decoration-2 md:p-0"
                     aria-current="page"
                     onClick={() => handleClick(item.path)}
                   >
