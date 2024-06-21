@@ -73,16 +73,16 @@ export default function Header() {
             onClick={toggleOpenLang}
           >
             <img
-              className="me-3 h-5 w-5 rounded-full"
+              className="mx-auto h-5 w-5 rounded-full"
               src={currentLang?.icon}
               alt={currentLang?.label}
             />
-            {currentLang?.label}
-            <img
+            {/* {currentLang?.label} */}
+            {/* <img
               className="ml-[5px] h-2 w-2"
               src="/assets/images/angle-down.svg"
               alt="arrow-down-icon"
-            />
+            /> */}
           </button>
 
           {openLang && (

@@ -13,10 +13,10 @@ export default function GalleryPageView() {
           <div className="container mx-auto grid grid-cols-1 gap-2">
             <Box display="flex" justifyContent="end">
               <Button
-                type="button"
                 variant="contained"
                 size="large"
                 className="!bg-[#f4b7d2]"
+                href="/gallery/form"
               >
                 <LuImagePlus className="mr-3" />
                 ฝากผลงาน
