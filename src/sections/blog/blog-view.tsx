@@ -31,11 +31,17 @@ export default function BlogPageView() {
               </Box>
               <Stack className="flex flex-grow flex-col gap-[8px]">
                 <Link
-                  component={Typography}
+                  // component={Typography}
                   variant="subtitle2"
-                  className="!m-0 cursor-pointer overflow-hidden text-ellipsis !text-[0.875rem] !font-[600] !leading-[1.57143] !text-inherit !no-underline hover:!underline"
+                  className="!m-0 cursor-pointer overflow-hidden !text-inherit !no-underline hover:!underline"
+                  href={`/blog/${blog.id}`}
                 >
-                  {blog.title}
+                  <Typography
+                    variant="subtitle2"
+                    className="text-ellipsis !text-[0.875rem] !font-[600] !leading-[1.57143]"
+                  >
+                    {blog.title}
+                  </Typography>
                 </Link>
                 <Typography
                   variant="body2"
